@@ -24,10 +24,10 @@ export default function handler(
 	console.log(contractAddress, tokenId);
 
   res.status(200).json({
-			"description": "Friendly OpenSea Creature that enjoys long swims in the ocean.", 
-			"external_url": "https://openseacreatures.io/3", 
-			"image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png", 
-			"name": "Dave Starbelly",
+			"description": "Starbucks Star coffee", 
+			"external_url": "https://www.starbucks.ca/", 
+			"image": "https://media.glamour.com/photos/570e9ff1d7886f300b58bdba/master/w_1080,h_1080,c_limit/Starbucks.gif", 
+			"name": "Star Coffee",
 			// animation_url: "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.mp4",
 			"attributes": [
 				{
