@@ -97,6 +97,18 @@ const main = async () => {
   console.log(`✅ Successfully set claim condition!`);
 
   /**
+   * Disable transfer role for all
+   */
+  console.log(`🕘 Disabling transfer role for all...`);
+  const rolesAndMembers = await thirdWebContract.roles.getAll();
+  const transferRoleResponse = await thirdWebContract.roles.setAll({
+    ...rolesAndMembers,
+    transfer: [blueprint.ownerAddress],
+  });
+  await provider.getTransaction(transferRoleResponse.receipt.transactionHash);
+  console.log(`✅ Successfully disabled transfer role for all!`);
+
+  /**
    * Claim genesis token
    */
   console.log(`🕘 Claiming genesis token...`);
@@ -106,7 +118,7 @@ const main = async () => {
     1
   );
 
-  const claimGenesisTokenTransactionResponse = await provider.getTransaction(
+  await provider.getTransaction(
     claimGenesisTokenResponse.receipt.transactionHash
   );
   const openseaUrl = `https://testnets.opensea.io/assets/mumbai/${deployedContractAddress}/${blueprint.tokenId}`;
